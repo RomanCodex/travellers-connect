@@ -49,9 +49,9 @@ async function loadRecords() {
         const data = await record.data.json();
         const entry = {record, data, id:record.id};
         entries.push(entry);
-        console.log(data);
     };
     console.log("Succesfully fetched entries");
+    console.log(entries);
 };
 
 //Function to create test entry
@@ -63,8 +63,6 @@ const createEntry = async () => {
         "body": "This is just to test and make sure everything is working properly",
         "author": myDid,
     };
-
-    // newEntry.value = { title: '', description: '', body: '', author: ''};
 
     try {
         const { record } = await web5.dwn.records.create({
