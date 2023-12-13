@@ -1,0 +1,57 @@
+{
+    "protocol": "https://didcomm.org/travel-journal",
+    "published": true,
+    "types": {
+        "entry": {
+            "schema": "https://didcomm.org/travel-journal/schemas/entry.json",
+            "dataFormats": ["application/json"]
+        },
+        "comments": {
+            "schema": "https://didcomm.org/travel-journal/schemas/comments.json",
+            "dataFormats": ["application/json"]
+        },
+        "images": {
+            "schema": "https://didcomm.org/travel-journal/schemas/images.jpeg",
+            "dataFormats": ["image/jpeg"]
+        }
+    },
+    "structure": {
+        "entry": {
+            "$actions": [
+                {
+                    "who": "anyone",
+                    "can": "read"
+                },
+                {
+                    "who": "anyone",
+                    "can": "write"
+                }
+            ],
+            "comments": {
+                "$actions": [
+                    {
+                        "who": "anyone",
+                        "can": "read"
+                    },
+                    {
+                        "who": "anyone",
+                        "can": "write"
+                    }
+                ]
+            },
+            "images": {
+                "$actions": [
+                    {
+                        "who": "author",
+                        "of": "entry",
+                        "can": "write"
+                    },
+                    {
+                        "who": "anyone",
+                        "can": "read"
+                    }
+                ]
+            }
+        }
+    }
+}
